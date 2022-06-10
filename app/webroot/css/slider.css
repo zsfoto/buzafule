@@ -1,0 +1,67 @@
+
+.slider {
+	position: absolute; left:11px; top:0px; z-index:6;
+	display: block;
+	width:653px;
+	height:630px;
+	overflow:hidden!important; background:#fff;
+}
+
+.items {
+    display: none;
+}
+
+.pagination {
+    position: absolute;
+    left: 30px;
+	bottom: 30px;    
+    z-index: 1000;
+}
+.pagination li {
+    margin-right: 4px;
+	float:left;
+}
+.pagination a {    
+    display: block;    
+    width: 17px;
+	height: 16px;
+	background: url(../images/pagination.png) right top no-repeat;
+}
+
+
+
+.pagination a:hover, .pagination .current a {
+    background-position:left;
+}
+
+
+.banner {
+	width:690px;
+	height:390px;    
+    position:absolute;
+	top: 0;
+    left: 0;    
+    z-index: 99;
+	/*overflow:hidden;*/
+}
+
+.banner .banner_inner{ position:absolute; width:690px; height:390px; left:0; top:0; z-index:99; text-align:left;Georgia, "Times New Roman", Times, serif; font-style:italic; text-shadow:1px 1px 0px #000;}
+
+.banner .txt1{ padding-left:40px;padding-top:190px; font-size:50px; color:#f3f3f3; line-height:50px;}
+.banner .txt2{ padding-left:40px;padding-top:0px; font-size:50px; color:#f3f3f3; line-height:50px; }
+.banner .txt3{ padding-left:40px;padding-top:10px; font-size:30px; color:#f3f3f3; line-height:30px; }
+
+.banner.item1 .txt3{ padding-left:150px; }
+
+.banner.item2 .txt1{ padding-left:60px; }
+
+
+/*.progbar {
+	background:#000;
+	width:100%;
+	height:2px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:6;
+}*/

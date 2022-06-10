@@ -1,0 +1,35 @@
+<div class="box">
+	<h2><a href="#" id="toggle-forms"><?php printf("<?php echo __('%s'); ?>", $singularHumanName); ?></a></h2>
+	<div class="block" id="forms">
+		<fieldset class="login">
+<?php
+				$actionText = "Adatlap";
+				// if($action == 'add') {
+					// $actionText = "Új rekord";
+				// }
+?>
+			<legend><?php printf("<?php echo __('%s'); ?>", $actionText); ?></legend>
+			<?php echo "<?php echo \$this->Form->create('{$modelClass}'); ?>\n	"; ?>
+<?php
+		foreach ($fields as $field) {
+			if($field != 'created' && $field != 'modified' && $field != 'password' && $field != 'hash'){
+				if (strpos($action, 'add') !== false && $field == $primaryKey) {
+					continue;
+				} elseif (!in_array($field, array('created', 'modified', 'updated'))) {
+					echo "\t\t\t\t<p><?php echo \$this->Form->input('{$field}', array('label'=>': ','div'=>false, 'disabled'=>true )); ?></p>\n";
+				}
+			}
+		}
+		if (!empty($associations['hasAndBelongsToMany'])) {
+			foreach ($associations['hasAndBelongsToMany'] as $assocName => $assocData) {
+				echo "\t\t\t\t<p>echo \$this->Form->input('{$assocName}', array('label'=>': ','div'=>false, 'disabled'=>true )); ?></p>\n";
+			}
+		}
+?>
+			<?php echo "<p><?php echo \$this->Html->link(__('O.K.'), array('action' => 'index'),array('class'=>'confirm button ok')); ?></p>\n"; ?>
+			<?php echo "</form>\n"; ?>
+		</fieldset>
+	</div>
+</div>
+
+

@@ -1,0 +1,44 @@
+<?php
+App::uses('Controller', 'Controller');
+class AppController extends Controller {
+
+	public $helpers = array('Session', 'Form', 'Html');
+	// public $helpers = array("Session", "Javascript", "Html", "Form", "Ajax", 'Js'=>array('Jquery'));
+
+	public $FacebookTitle, $FacebookDescription;	
+	
+	public $components = array(
+		'Session',
+		'Auth' => array(
+			// 'loginRedirect' => array(
+				// 'controller' 	=> 'mails',
+				// 'action'		=> 'index',
+				// 'admin'			=> TRUE
+			// ),
+			'logoutRedirect' => array( '/' ),
+			'loginRedirect' => array( '/admin/mails/index' )
+		)
+	);
+	
+	public function beforeFilter(){
+	
+		// $this->Auth->allow('index','add', 'edit');	
+		
+        // Security::setHash('sha512');
+		
+		$this->Auth->authenticate = array('Form');
+		
+		$this->Auth->authError = "Kérem jelentkezzens be!";
+		if (!$this->Auth->loggedIn()) {
+			$this->Auth->authError = false;
+		}else{
+		}
+
+		
+	}
+
+	
+	
+
+}
+?>
